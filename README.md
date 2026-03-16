@@ -1,4 +1,4 @@
-# Project Page Template
+# SAMA
 
 This is a static research project page template intended for GitHub Pages.
 
