@@ -3,17 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Project Title</title>
-  <meta name="description" content="Project page template for a research website.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <title>SAMA: Factorized Semantic Anchoring and Motion Alignment for Instruction-Guided Video Editing</title>
+  <meta name="description" content="Project page for SAMA, a factorized framework for instruction-guided video editing with semantic anchoring and motion alignment.">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
   <header class="hero">
     <nav class="topbar">
-      <a class="brand" href="#top">Project Page</a>
+      <a class="brand" href="#top">SAMA</a>
       <div class="nav-links">
         <a href="#overview">Overview</a>
         <a href="#method">Method</a>
@@ -23,148 +20,1108 @@
     </nav>
     <div class="hero-shell">
       <div class="hero-copy">
-        <p class="eyebrow">Conference 2026</p>
-        <h1>Project Title: A Strong One-Line Summary</h1>
-        <p class="summary">
-          Replace this paragraph with a concise explanation of your paper, benchmark, or system.
-          Keep it to two sentences so the landing section stays tight.
-        </p>
+        <p class="eyebrow">arXiv 2026</p>
+        <h1>SAMA</h1>
+        <p class="hero-subtitle">Factorized Semantic Anchoring and Motion Alignment for Instruction-Guided Video Editing</p>
         <p class="authors">
-          Xinyao Zhang, Author B, Author C
+          Xinyao Zhang<sup>1,2,*</sup>, Wenkai Dong<sup>1,*</sup>, Yuxin Song<sup>1,*,&dagger;</sup>, Bo Fang<sup>1,3</sup>,
+          Qi Zhang<sup>1</sup>, Jing Wang<sup>1,2</sup>, Fan Chen<sup>1</sup>, Hui Zhang<sup>1</sup>,
+          Haocheng Feng<sup>1</sup>, Yu Lu<sup>4,&Dagger;</sup>, Hang Zhou<sup>1</sup>, Chun Yuan<sup>2</sup>,
+          Jingdong Wang<sup>1</sup>
         </p>
         <p class="affiliations">
-          Institution A, Institution B
+          <span><sup>1</sup> Baidu Inc</span>
+          <span><sup>2</sup> Tsinghua University</span>
+          <span><sup>3</sup> City University of Hong Kong</span>
+          <span><sup>4</sup> Zhejiang University</span>
         </p>
+        <p class="meta-note"><span>* Equal Contribution</span><span>&dagger; Project leader</span><span>&Dagger; Corresponding Author</span></p>
         <div class="cta-row">
-          <a class="button primary" href="#">Paper</a>
-          <a class="button" href="#">Code</a>
-          <a class="button" href="#">Dataset</a>
-          <a class="button" href="#">Video</a>
-        </div>
-      </div>
-      <div class="hero-card">
-        <div class="hero-badge">Teaser Figure</div>
-        <div class="teaser-placeholder">
-          <div class="teaser-grid">
-            <span>Input</span>
-            <span>Instruction</span>
-            <span>Output</span>
-          </div>
-          <p>Replace this block with a teaser image or a looping demo video.</p>
+          <a class="button" href="assets/pdfs/SAMA_arxiv.pdf" target="_blank" rel="noreferrer">
+            <span class="button-icon" aria-hidden="true">
+              <img src="https://arxiv.org/static/browse/0.3.4/images/icons/favicon-32x32.png" alt="">
+            </span>
+            <span>Paper</span>
+          </a>
+          <a class="button" href="https://github.com/Cynthiazxy123/SAMA" target="_blank" rel="noreferrer">
+            <span class="button-icon" aria-hidden="true">
+              <img src="https://github.githubassets.com/favicons/favicon.svg" alt="">
+            </span>
+            <span>Code</span>
+          </a>
+          <a class="button" href="https://huggingface.co/syxbb/SAMA-14B" target="_blank" rel="noreferrer">
+            <span class="button-icon" aria-hidden="true">
+              <img src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg" alt="">
+            </span>
+            <span>Model</span>
+          </a>
+          <a class="button" href="https://huggingface.co/datasets/syxbb/SAMA-edit-filtered-1M" target="_blank" rel="noreferrer">
+            <span class="button-icon" aria-hidden="true">
+              <img src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg" alt="">
+            </span>
+            <span>Dataset (Under review)</span>
+          </a>
         </div>
       </div>
     </div>
   </header>
 
   <main>
-    <section class="section" id="overview">
+    <section class="section page-section" id="overview">
       <div class="section-head">
         <p class="section-tag">Overview</p>
-        <h2>What this project does</h2>
+        <h2>Balancing semantic edits and motion fidelity</h2>
       </div>
-      <div class="two-col">
+      <div class="overview-single">
         <div class="text-card">
           <p>
-            Use this block for the core motivation. State the problem, the gap in prior work,
-            and the main idea. Readers should understand the whole project from this section alone.
+            Current instruction-guided video editing systems often face a tradeoff between strong
+            semantic modification and faithful motion preservation. SAMA addresses this by separating
+            the problem into sparse semantic planning and motion modeling, avoiding heavy reliance on
+            brittle external priors such as VLM features or structural control signals.
           </p>
           <ul class="feature-list">
-            <li>Key contribution one</li>
-            <li>Key contribution two</li>
-            <li>Key contribution three</li>
+            <li>Semantic Anchoring jointly predicts semantic tokens and video latents at sparse anchor frames.</li>
+            <li>Motion Alignment learns temporal dynamics from raw videos through motion-centric pretext tasks.</li>
+            <li>A two-stage training pipeline produces strong zero-shot editing and competitive benchmark performance.</li>
           </ul>
         </div>
-        <div class="image-card">
-          <div class="image-placeholder large">Overview figure placeholder</div>
+        <div class="image-card overview-figure">
+          <p class="hero-badge">Teaser Figure</p>
+          <img class="figure-image teaser-paper-image" src="assets/images/fig1-teaser-paper.jpg" alt="Figure 1 teaser from the SAMA paper">
         </div>
       </div>
     </section>
 
-    <section class="section" id="method">
+    <section class="section page-section" id="method">
       <div class="section-head">
         <p class="section-tag">Method</p>
-        <h2>System pipeline and components</h2>
+        <h2>Factorized semantic anchoring and motion alignment</h2>
       </div>
       <div class="pipeline-card">
-        <div class="image-placeholder wide">Method / pipeline figure placeholder</div>
+        <img class="figure-image wide-figure" src="assets/images/fig2-pipeline.png" alt="Figure 2 overall pipeline of SAMA">
         <div class="pipeline-notes">
           <div>
-            <h3>Stage 1</h3>
-            <p>Describe the first block of the method in one short paragraph.</p>
+            <h3>Semantic Anchoring</h3>
+            <p>SAMA predicts semantic tokens together with target latents at sparse anchor frames, providing instruction-aware structure planning in semantic space while retaining high-fidelity rendering in latent space.</p>
           </div>
           <div>
-            <h3>Stage 2</h3>
-            <p>Describe the second block of the method in one short paragraph.</p>
+            <h3>Motion Alignment</h3>
+            <p>The same backbone is pre-trained with cube inpainting, speed perturbation, and tube shuffle tasks so it can internalize temporal coherence directly from raw videos.</p>
           </div>
           <div>
-            <h3>Stage 3</h3>
-            <p>Describe the final block of the method in one short paragraph.</p>
+            <h3>Two-Stage Training</h3>
+            <p>Stage 0 performs factorized pre-training on perturbed videos and captions, then Stage 1 fine-tunes on paired editing data to resolve remaining semantic-motion conflicts and improve fidelity.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section" id="results">
+    <section class="section section-wide page-section page-section-compact" id="results">
       <div class="section-head">
         <p class="section-tag">Results</p>
-        <h2>Qualitative examples</h2>
       </div>
-      <div class="demo-grid">
-        <article class="demo-card">
-          <div class="media-placeholder">Replace with demo video 1</div>
-          <h3>Example 1</h3>
-          <p>Short caption describing the setting and result.</p>
-        </article>
-        <article class="demo-card">
-          <div class="media-placeholder">Replace with demo video 2</div>
-          <h3>Example 2</h3>
-          <p>Short caption describing the setting and result.</p>
-        </article>
-        <article class="demo-card">
-          <div class="media-placeholder">Replace with demo video 3</div>
-          <h3>Example 3</h3>
-          <p>Short caption describing the setting and result.</p>
-        </article>
-        <article class="demo-card">
-          <div class="media-placeholder">Replace with demo video 4</div>
-          <h3>Example 4</h3>
-          <p>Short caption describing the setting and result.</p>
+      <div class="benchmark-panel-head">
+        <h2 class="benchmark-title">Comparison with other methods</h2>
+      </div>
+      <div class="benchmark-panel">
+        <div class="benchmark-list">
+          <article class="benchmark-row">
+            <div class="benchmark-scroll">
+              <div class="benchmark-videos">
+                <div class="benchmark-video">
+                  <div class="video-label">Source</div>
+                  <video controls muted loop playsinline preload="metadata" data-sync-group="highlight-10">
+                    <source src="assets/videos/highlight/highlight-10-source.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="benchmark-video">
+                  <div class="video-label">SAMA</div>
+                  <video controls muted loop playsinline preload="metadata" data-sync-group="highlight-10">
+                    <source src="assets/videos/highlight/highlight-10-sama.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="benchmark-video">
+                  <div class="video-label">Kling-o1</div>
+                  <video controls muted loop playsinline preload="metadata" data-sync-group="highlight-10">
+                    <source src="assets/videos/highlight/highlight-10-kling.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="benchmark-video">
+                  <div class="video-label">UniVideo</div>
+                  <video controls muted loop playsinline preload="metadata" data-sync-group="highlight-10">
+                    <source src="assets/videos/highlight/highlight-10-univideo.mp4" type="video/mp4">
+                  </video>
+                </div>
+              </div>
+            </div>
+            <p class="benchmark-prompt">Replace the blackswan with a white cat.</p>
+          </article>
+          <article class="benchmark-row">
+            <div class="benchmark-scroll">
+              <div class="benchmark-videos">
+                <div class="benchmark-video">
+                  <div class="video-label">Source</div>
+                  <video controls muted loop playsinline preload="metadata" data-sync-group="highlight-11">
+                    <source src="assets/videos/highlight/highlight-11-source-v3.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="benchmark-video">
+                  <div class="video-label">SAMA</div>
+                  <video controls muted loop playsinline preload="metadata" data-sync-group="highlight-11">
+                    <source src="assets/videos/highlight/highlight-11-sama-v3.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="benchmark-video">
+                  <div class="video-label">Kling-o1</div>
+                  <video controls muted loop playsinline preload="metadata" data-sync-group="highlight-11">
+                    <source src="assets/videos/highlight/highlight-11-kling-v3.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="benchmark-video">
+                  <div class="video-label">UniVideo</div>
+                  <video controls muted loop playsinline preload="metadata" data-sync-group="highlight-11">
+                    <source src="assets/videos/highlight/highlight-11-univideo-v3.mp4" type="video/mp4">
+                  </video>
+                </div>
+              </div>
+            </div>
+            <p class="benchmark-prompt">Add a white cartoon cat in the right of the boy.</p>
+          </article>
+          <article class="benchmark-row">
+            <div class="benchmark-scroll">
+              <div class="benchmark-videos">
+                <div class="benchmark-video">
+                  <div class="video-label">Source</div>
+                  <video controls muted loop playsinline preload="metadata" data-sync-group="highlight-06">
+                    <source src="assets/videos/highlight/highlight-06-source.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="benchmark-video">
+                  <div class="video-label">SAMA</div>
+                  <video controls muted loop playsinline preload="metadata" data-sync-group="highlight-06">
+                    <source src="assets/videos/highlight/highlight-06-sama.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="benchmark-video">
+                  <div class="video-label">Kling-o1</div>
+                  <video controls muted loop playsinline preload="metadata" data-sync-group="highlight-06">
+                    <source src="assets/videos/highlight/highlight-06-kling.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="benchmark-video">
+                  <div class="video-label">UniVideo</div>
+                  <video controls muted loop playsinline preload="metadata" data-sync-group="highlight-06">
+                    <source src="assets/videos/highlight/highlight-06-univideo.mp4" type="video/mp4">
+                  </video>
+                </div>
+              </div>
+            </div>
+            <p class="benchmark-prompt">Turn into watercolor style.</p>
+          </article>
+          <article class="benchmark-row">
+            <div class="benchmark-scroll">
+              <div class="benchmark-videos">
+                <div class="benchmark-video">
+                  <div class="video-label">Source</div>
+                  <video controls muted loop playsinline preload="metadata" data-sync-group="highlight-07">
+                    <source src="assets/videos/highlight/highlight-07-source.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="benchmark-video">
+                  <div class="video-label">SAMA</div>
+                  <video controls muted loop playsinline preload="metadata" data-sync-group="highlight-07">
+                    <source src="assets/videos/highlight/highlight-07-sama.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="benchmark-video">
+                  <div class="video-label">Kling-o1</div>
+                  <video controls muted loop playsinline preload="metadata" data-sync-group="highlight-07">
+                    <source src="assets/videos/highlight/highlight-07-kling.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="benchmark-video">
+                  <div class="video-label">UniVideo</div>
+                  <video controls muted loop playsinline preload="metadata" data-sync-group="highlight-07">
+                    <source src="assets/videos/highlight/highlight-07-univideo.mp4" type="video/mp4">
+                  </video>
+                </div>
+              </div>
+            </div>
+            <p class="benchmark-prompt">Change all person's clothes color into black.</p>
+          </article>
+          <article class="benchmark-row">
+            <div class="benchmark-scroll">
+              <div class="benchmark-videos">
+                <div class="benchmark-video">
+                  <div class="video-label">Source</div>
+                  <video controls muted loop playsinline preload="metadata" data-sync-group="highlight-08">
+                    <source src="assets/videos/highlight/highlight-08-source-v2.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="benchmark-video">
+                  <div class="video-label">SAMA</div>
+                  <video controls muted loop playsinline preload="metadata" data-sync-group="highlight-08">
+                    <source src="assets/videos/highlight/highlight-08-sama-v2.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="benchmark-video">
+                  <div class="video-label">Kling-o1</div>
+                  <video controls muted loop playsinline preload="metadata" data-sync-group="highlight-08">
+                    <source src="assets/videos/highlight/highlight-08-kling-v2.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="benchmark-video">
+                  <div class="video-label">UniVideo</div>
+                  <video controls muted loop playsinline preload="metadata" data-sync-group="highlight-08">
+                    <source src="assets/videos/highlight/highlight-08-univideo-v2.mp4" type="video/mp4">
+                  </video>
+                </div>
+              </div>
+            </div>
+            <p class="benchmark-prompt">Remove the football.</p>
+          </article>
+          <article class="benchmark-row">
+            <div class="benchmark-scroll">
+              <div class="benchmark-videos">
+                <div class="benchmark-video">
+                  <div class="video-label">Source</div>
+                  <video controls muted loop playsinline preload="metadata" data-sync-group="highlight-09">
+                    <source src="assets/videos/highlight/highlight-09-source-v2.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="benchmark-video">
+                  <div class="video-label">SAMA</div>
+                  <video controls muted loop playsinline preload="metadata" data-sync-group="highlight-09">
+                    <source src="assets/videos/highlight/highlight-09-sama-v2.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="benchmark-video">
+                  <div class="video-label">Kling-o1</div>
+                  <video controls muted loop playsinline preload="metadata" data-sync-group="highlight-09">
+                    <source src="assets/videos/highlight/highlight-09-kling-v3.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="benchmark-video">
+                  <div class="video-label">UniVideo</div>
+                  <video controls muted loop playsinline preload="metadata" data-sync-group="highlight-09">
+                    <source src="assets/videos/highlight/highlight-09-univideo-v3.mp4" type="video/mp4">
+                  </video>
+                </div>
+              </div>
+            </div>
+            <p class="benchmark-prompt">Add a brown hat on the man's head.</p>
+          </article>
+          <article class="benchmark-row">
+            <div class="benchmark-scroll">
+              <div class="benchmark-videos">
+                <div class="benchmark-video">
+                  <div class="video-label">Source</div>
+                  <video controls muted loop playsinline preload="metadata" data-sync-group="highlight-01">
+                    <source src="assets/videos/highlight/highlight-01-source.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="benchmark-video">
+                  <div class="video-label">SAMA</div>
+                  <video controls muted loop playsinline preload="metadata" data-sync-group="highlight-01">
+                    <source src="assets/videos/highlight/highlight-01-sama.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="benchmark-video">
+                  <div class="video-label">Kling-o1</div>
+                  <video controls muted loop playsinline preload="metadata" data-sync-group="highlight-01">
+                    <source src="assets/videos/highlight/highlight-01-kling.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="benchmark-video">
+                  <div class="video-label">UniVideo</div>
+                  <video controls muted loop playsinline preload="metadata" data-sync-group="highlight-01">
+                    <source src="assets/videos/highlight/highlight-01-univideo.mp4" type="video/mp4">
+                  </video>
+                </div>
+              </div>
+            </div>
+            <p class="benchmark-prompt">Replace the background with a dynamic desert highway scene. Heat waves should shimmer above the asphalt, dust occasionally drifts across the road, and distant birds fly across the sky. The lighting should be bright and natural, with subtle shadows moving as if from a passing cloud. The man and SUV remain perfectly still.</p>
+          </article>
+          <article class="benchmark-row">
+            <div class="benchmark-scroll">
+              <div class="benchmark-videos">
+                <div class="benchmark-video">
+                  <div class="video-label">Source</div>
+                  <video controls muted loop playsinline preload="metadata" data-sync-group="highlight-02">
+                    <source src="assets/videos/highlight/highlight-02-source.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="benchmark-video">
+                  <div class="video-label">SAMA</div>
+                  <video controls muted loop playsinline preload="metadata" data-sync-group="highlight-02">
+                    <source src="assets/videos/highlight/highlight-02-sama.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="benchmark-video">
+                  <div class="video-label">Kling-o1</div>
+                  <video controls muted loop playsinline preload="metadata" data-sync-group="highlight-02">
+                    <source src="assets/videos/highlight/highlight-02-kling.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="benchmark-video">
+                  <div class="video-label">UniVideo</div>
+                  <video controls muted loop playsinline preload="metadata" data-sync-group="highlight-02">
+                    <source src="assets/videos/highlight/highlight-02-univideo.mp4" type="video/mp4">
+                  </video>
+                </div>
+              </div>
+            </div>
+            <p class="benchmark-prompt">Replace the subtitles &quot;What's locked in these frames could rewrite her story.&quot; at the bottom of the video with &quot;Her fingers trace fragile film - soft light, a life unspooling.&quot; in white text without border style.</p>
+          </article>
+          <article class="benchmark-row">
+            <div class="benchmark-scroll">
+              <div class="benchmark-videos">
+                <div class="benchmark-video">
+                  <div class="video-label">Source</div>
+                  <video controls muted loop playsinline preload="metadata" data-sync-group="highlight-03">
+                    <source src="assets/videos/highlight/highlight-03-source-v2.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="benchmark-video">
+                  <div class="video-label">SAMA</div>
+                  <video controls muted loop playsinline preload="metadata" data-sync-group="highlight-03">
+                    <source src="assets/videos/highlight/highlight-03-sama-v2.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="benchmark-video">
+                  <div class="video-label">Kling-o1</div>
+                  <video controls muted loop playsinline preload="metadata" data-sync-group="highlight-03">
+                    <source src="assets/videos/highlight/highlight-03-kling-v2.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="benchmark-video">
+                  <div class="video-label">UniVideo</div>
+                  <video controls muted loop playsinline preload="metadata" data-sync-group="highlight-03">
+                    <source src="assets/videos/highlight/highlight-03-univideo-v2.mp4" type="video/mp4">
+                  </video>
+                </div>
+              </div>
+            </div>
+            <p class="benchmark-prompt">Add a gorilla on the left, standing and trying to copy the dance moves.</p>
+          </article>
+          <article class="benchmark-row">
+            <div class="benchmark-scroll">
+              <div class="benchmark-videos">
+                <div class="benchmark-video">
+                  <div class="video-label">Source</div>
+                  <video controls muted loop playsinline preload="metadata" data-sync-group="highlight-04">
+                    <source src="assets/videos/highlight/highlight-04-source-v2.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="benchmark-video">
+                  <div class="video-label">SAMA</div>
+                  <video controls muted loop playsinline preload="metadata" data-sync-group="highlight-04">
+                    <source src="assets/videos/highlight/highlight-04-sama-v2.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="benchmark-video">
+                  <div class="video-label">Kling-o1</div>
+                  <video controls muted loop playsinline preload="metadata" data-sync-group="highlight-04">
+                    <source src="assets/videos/highlight/highlight-04-kling-v2.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="benchmark-video">
+                  <div class="video-label">UniVideo</div>
+                  <video controls muted loop playsinline preload="metadata" data-sync-group="highlight-04">
+                    <source src="assets/videos/highlight/highlight-04-univideo-v2.mp4" type="video/mp4">
+                  </video>
+                </div>
+              </div>
+            </div>
+            <p class="benchmark-prompt">Remove the young boy standing at the chalkboard.</p>
+          </article>
+          <article class="benchmark-row">
+            <div class="benchmark-scroll">
+              <div class="benchmark-videos">
+                <div class="benchmark-video">
+                  <div class="video-label">Source</div>
+                  <video controls muted loop playsinline preload="metadata" data-sync-group="highlight-05">
+                    <source src="assets/videos/highlight/highlight-05-source-v2.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="benchmark-video">
+                  <div class="video-label">SAMA</div>
+                  <video controls muted loop playsinline preload="metadata" data-sync-group="highlight-05">
+                    <source src="assets/videos/highlight/highlight-05-sama-v2.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="benchmark-video">
+                  <div class="video-label">Kling-o1</div>
+                  <video controls muted loop playsinline preload="metadata" data-sync-group="highlight-05">
+                    <source src="assets/videos/highlight/highlight-05-kling-v2.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="benchmark-video">
+                  <div class="video-label">UniVideo</div>
+                  <video controls muted loop playsinline preload="metadata" data-sync-group="highlight-05">
+                    <source src="assets/videos/highlight/highlight-05-univideo-v2.mp4" type="video/mp4">
+                  </video>
+                </div>
+              </div>
+            </div>
+            <p class="benchmark-prompt">Remove the wolf-like dog on the right.</p>
+          </article>
+        </div>
+      </div>
+      <div class="benchmark-panel-head">
+        <h2 class="benchmark-title">Benchmark highlights</h2>
+      </div>
+      <div class="demo-grid benchmark-highlights-grid">
+        <article class="demo-card benchmark-highlights-card">
+          <div class="table-stack table-stack-three">
+            <img class="table-preview" src="assets/images/table2-vie-bench.png" alt="Table 2 comparison results on VIE-Bench">
+            <img class="table-preview" src="assets/images/table3-openve-bench.png" alt="Table 3 comparison results on OpenVE-Bench">
+            <img class="table-preview" src="assets/images/table4-reco-bench.png" alt="Table 4 comparison results on ReCo-Bench">
+          </div>
+          <h3>Open-source SOTA</h3>
+          <p>SAMA achieves state-of-the-art performance among open-source instruction-guided video editing models and remains competitive with leading commercial systems.</p>
         </article>
       </div>
     </section>
 
-    <section class="section">
-      <div class="section-head">
-        <p class="section-tag">Notes</p>
-        <h2>Ethical considerations</h2>
+    <section class="section section-wide page-section page-section-compact task-section">
+      <div class="task-panel-head">
+        <p class="section-tag">More visualizations</p>
       </div>
-      <div class="text-card">
-        <p>
-          Add a short note covering intended use, limitations, and any safety or privacy concerns.
-          If this is a benchmark page, explain evaluation scope and known failure cases.
-        </p>
+      <div class="task-panel">
+        <div class="section-head">
+          <h2>Add task</h2>
+        </div>
+        <div class="example-grid">
+        <article class="example-card">
+          <div class="example-stack">
+            <div class="video-slot">
+              <div class="video-label">Source Video</div>
+              <video controls muted loop playsinline preload="metadata" data-sync-group="add-01" data-sync-role="source">
+                <source src="assets/videos/add/add-01-source.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="video-slot">
+              <div class="video-label">SAMA</div>
+              <video controls muted loop playsinline preload="metadata" data-sync-group="add-01" data-sync-role="cosmo">
+                <source src="assets/videos/add/add-01-cosmo.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+          <p class="example-prompt">Add a tiny red fez hat on the monkey's head.</p>
+        </article>
+        <article class="example-card">
+          <div class="example-stack">
+            <div class="video-slot">
+              <div class="video-label">Source Video</div>
+              <video controls muted loop playsinline preload="metadata" data-sync-group="add-02" data-sync-role="source">
+                <source src="assets/videos/add/add-02-source-v2.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="video-slot">
+              <div class="video-label">SAMA</div>
+              <video controls muted loop playsinline preload="metadata" data-sync-group="add-02" data-sync-role="cosmo">
+                <source src="assets/videos/add/add-02-cosmo-v2.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+          <p class="example-prompt">Add a third, smaller Shiba Inu puppy sitting between the two dogs.</p>
+        </article>
+        <article class="example-card">
+          <div class="example-stack">
+            <div class="video-slot">
+              <div class="video-label">Source Video</div>
+              <video controls muted loop playsinline preload="metadata" data-sync-group="add-03" data-sync-role="source">
+                <source src="assets/videos/add/add-03-source.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="video-slot">
+              <div class="video-label">SAMA</div>
+              <video controls muted loop playsinline preload="metadata" data-sync-group="add-03" data-sync-role="cosmo">
+                <source src="assets/videos/add/add-03-cosmo.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+          <p class="example-prompt">Add a woman with short black hair and big gold earrings Sitting in front of the beige L-shaped sofa.</p>
+        </article>
+        <article class="example-card">
+          <div class="example-stack">
+            <div class="video-slot">
+              <div class="video-label">Source Video</div>
+              <video controls muted loop playsinline preload="metadata" data-sync-group="add-04" data-sync-role="source">
+                <source src="assets/videos/add/add-04-source.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="video-slot">
+              <div class="video-label">SAMA</div>
+              <video controls muted loop playsinline preload="metadata" data-sync-group="add-04" data-sync-role="cosmo">
+                <source src="assets/videos/add/add-04-cosmo.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+          <p class="example-prompt">Add a woman with alternating light and dark hair sitting in the box.</p>
+        </article>
+        <article class="example-card">
+          <div class="example-stack">
+            <div class="video-slot">
+              <div class="video-label">Source Video</div>
+              <video controls muted loop playsinline preload="metadata" data-sync-group="add-05" data-sync-role="source">
+                <source src="assets/videos/add/add-05-source.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="video-slot">
+              <div class="video-label">SAMA</div>
+              <video controls muted loop playsinline preload="metadata" data-sync-group="add-05" data-sync-role="cosmo">
+                <source src="assets/videos/add/add-05-cosmo.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+          <p class="example-prompt">Add a small pink paper boat floating on the water to the left of the duck.</p>
+        </article>
+        <article class="example-card">
+          <div class="example-stack">
+            <div class="video-slot">
+              <div class="video-label">Source Video</div>
+              <video controls muted loop playsinline preload="metadata" data-sync-group="add-06" data-sync-role="source">
+                <source src="assets/videos/add/add-06-source.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="video-slot">
+              <div class="video-label">SAMA</div>
+              <video controls muted loop playsinline preload="metadata" data-sync-group="add-06" data-sync-role="cosmo">
+                <source src="assets/videos/add/add-06-cosmo.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+          <p class="example-prompt">Add a small, orange octopus sitting on the seal's head.</p>
+        </article>
+        <article class="example-card">
+          <div class="example-stack">
+            <div class="video-slot">
+              <div class="video-label">Source Video</div>
+              <video controls muted loop playsinline preload="metadata" data-sync-group="add-07" data-sync-role="source">
+                <source src="assets/videos/add/add-07-source.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="video-slot">
+              <div class="video-label">SAMA</div>
+              <video controls muted loop playsinline preload="metadata" data-sync-group="add-07" data-sync-role="cosmo">
+                <source src="assets/videos/add/add-07-cosmo.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+          <p class="example-prompt">Add a desk lamp on the desk to the left of the laptop.</p>
+        </article>
+        <article class="example-card">
+          <div class="example-stack">
+            <div class="video-slot">
+              <div class="video-label">Source Video</div>
+              <video controls muted loop playsinline preload="metadata" data-sync-group="add-08" data-sync-role="source">
+                <source src="assets/videos/add/add-08-source.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="video-slot">
+              <div class="video-label">SAMA</div>
+              <video controls muted loop playsinline preload="metadata" data-sync-group="add-08" data-sync-role="cosmo">
+                <source src="assets/videos/add/add-08-cosmo.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+          <p class="example-prompt">Add a golden crown hat on the head of the chipmunk on the left.</p>
+        </article>
+        </div>
       </div>
     </section>
 
-    <section class="section" id="bibtex">
-      <div class="section-head">
-        <p class="section-tag">Citation</p>
-        <h2>BibTeX</h2>
+    <section class="section section-wide page-section page-section-compact task-section">
+      <div class="task-panel">
+        <div class="section-head">
+          <h2>Replace task</h2>
+        </div>
+        <div class="example-grid">
+        <article class="example-card">
+          <div class="example-stack">
+            <div class="video-slot">
+              <div class="video-label">Source Video</div>
+              <video controls muted loop playsinline preload="metadata" data-sync-group="replace-01" data-sync-role="source">
+                <source src="assets/videos/replace/replace-01-source-v2.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="video-slot">
+              <div class="video-label">SAMA</div>
+              <video controls muted loop playsinline preload="metadata" data-sync-group="replace-01" data-sync-role="sama">
+                <source src="assets/videos/replace/replace-01-sama-v2.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+          <p class="example-prompt">Replace the man in the green hoodie with a fluffy St. Bernard dog sitting in the chair, paws on the desk.</p>
+        </article>
+        <article class="example-card">
+          <div class="example-stack">
+            <div class="video-slot">
+              <div class="video-label">Source Video</div>
+              <video controls muted loop playsinline preload="metadata" data-sync-group="replace-02" data-sync-role="source">
+                <source src="assets/videos/replace/replace-02-source.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="video-slot">
+              <div class="video-label">SAMA</div>
+              <video controls muted loop playsinline preload="metadata" data-sync-group="replace-02" data-sync-role="sama">
+                <source src="assets/videos/replace/replace-02-sama.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+          <p class="example-prompt">Replace the cows with a wolf.</p>
+        </article>
+        <article class="example-card">
+          <div class="example-stack">
+            <div class="video-slot">
+              <div class="video-label">Source Video</div>
+              <video controls muted loop playsinline preload="metadata" data-sync-group="replace-03" data-sync-role="source">
+                <source src="assets/videos/replace/replace-03-source.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="video-slot">
+              <div class="video-label">SAMA</div>
+              <video controls muted loop playsinline preload="metadata" data-sync-group="replace-03" data-sync-role="sama">
+                <source src="assets/videos/replace/replace-03-sama.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+          <p class="example-prompt">Change the color of women's trousers to pink.</p>
+        </article>
+        <article class="example-card">
+          <div class="example-stack">
+            <div class="video-slot">
+              <div class="video-label">Source Video</div>
+              <video controls muted loop playsinline preload="metadata" data-sync-group="replace-04" data-sync-role="source">
+                <source src="assets/videos/replace/replace-04-source-v2.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="video-slot">
+              <div class="video-label">SAMA</div>
+              <video controls muted loop playsinline preload="metadata" data-sync-group="replace-04" data-sync-role="sama">
+                <source src="assets/videos/replace/replace-04-sama-v2.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+          <p class="example-prompt">Replace the man's light gray hoodie with a sharp dark navy blue business suit, white shirt, and black tie, maintaining the same position and pose within the scene.</p>
+        </article>
+        <article class="example-card">
+          <div class="example-stack">
+            <div class="video-slot">
+              <div class="video-label">Source Video</div>
+              <video controls muted loop playsinline preload="metadata" data-sync-group="replace-05" data-sync-role="source">
+                <source src="assets/videos/replace/replace-05-source.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="video-slot">
+              <div class="video-label">SAMA</div>
+              <video controls muted loop playsinline preload="metadata" data-sync-group="replace-05" data-sync-role="sama">
+                <source src="assets/videos/replace/replace-05-sama.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+          <p class="example-prompt">Replace the blue sports car with an electric green eco-friendly car, ensuring it maintains the same position and pose within the video scene.</p>
+        </article>
+        <article class="example-card">
+          <div class="example-stack">
+            <div class="video-slot">
+              <div class="video-label">Source Video</div>
+              <video controls muted loop playsinline preload="metadata" data-sync-group="replace-06" data-sync-role="source">
+                <source src="assets/videos/replace/replace-06-source.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="video-slot">
+              <div class="video-label">SAMA</div>
+              <video controls muted loop playsinline preload="metadata" data-sync-group="replace-06" data-sync-role="sama">
+                <source src="assets/videos/replace/replace-06-sama.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+          <p class="example-prompt">Replace the gray squirrel with a small pigeon pecking food from the hand.</p>
+        </article>
+        <article class="example-card">
+          <div class="example-stack">
+            <div class="video-slot">
+              <div class="video-label">Source Video</div>
+              <video controls muted loop playsinline preload="metadata" data-sync-group="replace-07" data-sync-role="source">
+                <source src="assets/videos/replace/replace-07-source.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="video-slot">
+              <div class="video-label">SAMA</div>
+              <video controls muted loop playsinline preload="metadata" data-sync-group="replace-07" data-sync-role="sama">
+                <source src="assets/videos/replace/replace-07-sama.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+          <p class="example-prompt">Replace the spotted baby seal on the sand with a red crab.</p>
+        </article>
+        <article class="example-card">
+          <div class="example-stack">
+            <div class="video-slot">
+              <div class="video-label">Source Video</div>
+              <video controls muted loop playsinline preload="metadata" data-sync-group="replace-08" data-sync-role="source">
+                <source src="assets/videos/replace/replace-08-source.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="video-slot">
+              <div class="video-label">SAMA</div>
+              <video controls muted loop playsinline preload="metadata" data-sync-group="replace-08" data-sync-role="sama">
+                <source src="assets/videos/replace/replace-08-sama.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+          <p class="example-prompt">Replace the pigeon on the right with a squirrel.</p>
+        </article>
+        </div>
       </div>
-      <div class="bibtex-card">
-        <button class="copy-button" type="button" data-copy-target="bibtex-block">Copy</button>
-        <pre id="bibtex-block">@inproceedings{yourproject2026,
-  title={Project Title},
-  author={Zhang, Xinyao and Author, B and Author, C},
-  booktitle={Conference Name},
+    </section>
+
+    <section class="section section-wide page-section page-section-compact task-section">
+      <div class="task-panel">
+        <div class="section-head">
+          <h2>Remove task</h2>
+        </div>
+        <div class="example-grid">
+        <article class="example-card">
+          <div class="example-stack">
+            <div class="video-slot">
+              <div class="video-label">Source Video</div>
+              <video controls muted loop playsinline preload="metadata" data-sync-group="remove-01" data-sync-role="source">
+                <source src="assets/videos/remove/remove-01-source.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="video-slot">
+              <div class="video-label">SAMA</div>
+              <video controls muted loop playsinline preload="metadata" data-sync-group="remove-01" data-sync-role="sama">
+                <source src="assets/videos/remove/remove-01-sama.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+          <p class="example-prompt">Remove the subtitles at the top of the video.</p>
+        </article>
+        <article class="example-card">
+          <div class="example-stack">
+            <div class="video-slot">
+              <div class="video-label">Source Video</div>
+              <video controls muted loop playsinline preload="metadata" data-sync-group="remove-02" data-sync-role="source">
+                <source src="assets/videos/remove/remove-02-source.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="video-slot">
+              <div class="video-label">SAMA</div>
+              <video controls muted loop playsinline preload="metadata" data-sync-group="remove-02" data-sync-role="sama">
+                <source src="assets/videos/remove/remove-02-sama.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+          <p class="example-prompt">Remove the boy.</p>
+        </article>
+        <article class="example-card">
+          <div class="example-stack">
+            <div class="video-slot">
+              <div class="video-label">Source Video</div>
+              <video controls muted loop playsinline preload="metadata" data-sync-group="remove-03" data-sync-role="source">
+                <source src="assets/videos/remove/remove-03-source.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="video-slot">
+              <div class="video-label">SAMA</div>
+              <video controls muted loop playsinline preload="metadata" data-sync-group="remove-03" data-sync-role="sama">
+                <source src="assets/videos/remove/remove-03-sama.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+          <p class="example-prompt">Remove the woman.</p>
+        </article>
+        <article class="example-card">
+          <div class="example-stack">
+            <div class="video-slot">
+              <div class="video-label">Source Video</div>
+              <video controls muted loop playsinline preload="metadata" data-sync-group="remove-04" data-sync-role="source">
+                <source src="assets/videos/remove/remove-04-source.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="video-slot">
+              <div class="video-label">SAMA</div>
+              <video controls muted loop playsinline preload="metadata" data-sync-group="remove-04" data-sync-role="sama">
+                <source src="assets/videos/remove/remove-04-sama.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+          <p class="example-prompt">Remove the bowl in the middle.</p>
+        </article>
+        <article class="example-card">
+          <div class="example-stack">
+            <div class="video-slot">
+              <div class="video-label">Source Video</div>
+              <video controls muted loop playsinline preload="metadata" data-sync-group="remove-05" data-sync-role="source">
+                <source src="assets/videos/remove/remove-05-source.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="video-slot">
+              <div class="video-label">SAMA</div>
+              <video controls muted loop playsinline preload="metadata" data-sync-group="remove-05" data-sync-role="sama">
+                <source src="assets/videos/remove/remove-05-sama.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+          <p class="example-prompt">Remove the black hat on the man's head.</p>
+        </article>
+        <article class="example-card">
+          <div class="example-stack">
+            <div class="video-slot">
+              <div class="video-label">Source Video</div>
+              <video controls muted loop playsinline preload="metadata" data-sync-group="remove-06" data-sync-role="source">
+                <source src="assets/videos/remove/remove-06-source.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="video-slot">
+              <div class="video-label">SAMA</div>
+              <video controls muted loop playsinline preload="metadata" data-sync-group="remove-06" data-sync-role="sama">
+                <source src="assets/videos/remove/remove-06-sama.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+          <p class="example-prompt">Remove the young woman with long, wavy brown hair and a serene expression from the entire video sequence. She is wearing a textured, off-white knit sweater with wide, ruffled sleeves, gazing upwards with her lips slightly parted and eyes softly closed, her head tilting slightly to the side while maintaining a relaxed posture with shoulders subtly leaning back. The background must be reconstructed with temporal consistency, and all other video content must remain unchanged.</p>
+        </article>
+        <article class="example-card">
+          <div class="example-stack">
+            <div class="video-slot">
+              <div class="video-label">Source Video</div>
+              <video controls muted loop playsinline preload="metadata" data-sync-group="remove-07" data-sync-role="source">
+                <source src="assets/videos/remove/remove-07-source.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="video-slot">
+              <div class="video-label">SAMA</div>
+              <video controls muted loop playsinline preload="metadata" data-sync-group="remove-07" data-sync-role="sama">
+                <source src="assets/videos/remove/remove-07-sama.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+          <p class="example-prompt">Remove the woman on the left.</p>
+        </article>
+        <article class="example-card">
+          <div class="example-stack">
+            <div class="video-slot">
+              <div class="video-label">Source Video</div>
+              <video controls muted loop playsinline preload="metadata" data-sync-group="remove-08" data-sync-role="source">
+                <source src="assets/videos/remove/remove-08-source.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="video-slot">
+              <div class="video-label">SAMA</div>
+              <video controls muted loop playsinline preload="metadata" data-sync-group="remove-08" data-sync-role="sama">
+                <source src="assets/videos/remove/remove-08-sama.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+          <p class="example-prompt">Remove the man in the green hoodie.</p>
+        </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-wide page-section page-section-compact task-section">
+      <div class="task-panel style-task-panel">
+        <div class="section-head">
+          <h2>Style task</h2>
+        </div>
+        <div class="example-grid">
+          <article class="example-card">
+            <div class="example-stack">
+              <div class="video-slot">
+                <div class="video-label">Source Video</div>
+                <video controls muted loop playsinline preload="metadata" data-sync-group="style-01" data-sync-role="source">
+                  <source src="assets/videos/style/style-01-source.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="video-slot">
+                <div class="video-label">SAMA</div>
+                <video controls muted loop playsinline preload="metadata" data-sync-group="style-01" data-sync-role="output">
+                  <source src="assets/videos/style/style-01-output.mp4" type="video/mp4">
+                </video>
+              </div>
+            </div>
+            <p class="example-prompt">Convert the video into a Ghibli style.</p>
+          </article>
+          <article class="example-card">
+            <div class="example-stack">
+              <div class="video-slot">
+                <div class="video-label">Source Video</div>
+                <video controls muted loop playsinline preload="metadata" data-sync-group="style-02" data-sync-role="source">
+                  <source src="assets/videos/style/style-02-source.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="video-slot">
+                <div class="video-label">SAMA</div>
+                <video controls muted loop playsinline preload="metadata" data-sync-group="style-02" data-sync-role="output">
+                  <source src="assets/videos/style/style-02-output.mp4" type="video/mp4">
+                </video>
+              </div>
+            </div>
+            <p class="example-prompt">Make it snowy.</p>
+          </article>
+          <article class="example-card">
+            <div class="example-stack">
+              <div class="video-slot">
+                <div class="video-label">Source Video</div>
+                <video controls muted loop playsinline preload="metadata" data-sync-group="style-03" data-sync-role="source">
+                  <source src="assets/videos/style/style-03-source.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="video-slot">
+                <div class="video-label">SAMA</div>
+                <video controls muted loop playsinline preload="metadata" data-sync-group="style-03" data-sync-role="output">
+                  <source src="assets/videos/style/style-03-output.mp4" type="video/mp4">
+                </video>
+              </div>
+            </div>
+            <p class="example-prompt">Transform the entire scene into pixel art style.</p>
+          </article>
+          <article class="example-card">
+            <div class="example-stack">
+              <div class="video-slot">
+                <div class="video-label">Source Video</div>
+                <video controls muted loop playsinline preload="metadata" data-sync-group="style-04" data-sync-role="source">
+                  <source src="assets/videos/style/style-04-source.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="video-slot">
+                <div class="video-label">SAMA</div>
+                <video controls muted loop playsinline preload="metadata" data-sync-group="style-04" data-sync-role="output">
+                  <source src="assets/videos/style/style-04-output.mp4" type="video/mp4">
+                </video>
+              </div>
+            </div>
+            <p class="example-prompt">Convert the video into a Sketch style.</p>
+          </article>
+        </div>
+      </div>
+      <div class="task-panel-head zero-shot-panel-head">
+        <h2 class="benchmark-title">Zero-shot video editing behavior</h2>
+      </div>
+      <div class="task-panel zero-shot-task-panel">
+        <div class="zero-shot-list">
+          <article class="zero-shot-row">
+            <div class="zero-shot-videos">
+              <div class="zero-shot-video">
+                <div class="video-label">Source</div>
+                <video controls muted loop playsinline preload="metadata" data-sync-group="zero-shot-01">
+                  <source src="assets/videos/zero-shot/zero-shot-01-source.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="zero-shot-video">
+                <div class="video-label">SAMA-stage0 Result</div>
+                <video controls muted loop playsinline preload="metadata" data-sync-group="zero-shot-01">
+                  <source src="assets/videos/zero-shot/zero-shot-01-stage0.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="zero-shot-video">
+                <div class="video-label">SAMA-stage1 Result</div>
+                <video controls muted loop playsinline preload="metadata" data-sync-group="zero-shot-01">
+                  <source src="assets/videos/zero-shot/zero-shot-01-stage1.mp4" type="video/mp4">
+                </video>
+              </div>
+            </div>
+            <p class="zero-shot-prompt">Change the color of the boat to yellow.</p>
+          </article>
+          <article class="zero-shot-row">
+            <div class="zero-shot-videos">
+              <div class="zero-shot-video">
+                <div class="video-label">Source</div>
+                <video controls muted loop playsinline preload="metadata" data-sync-group="zero-shot-02">
+                  <source src="assets/videos/zero-shot/zero-shot-02-source.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="zero-shot-video">
+                <div class="video-label">SAMA-stage0 Result</div>
+                <video controls muted loop playsinline preload="metadata" data-sync-group="zero-shot-02">
+                  <source src="assets/videos/zero-shot/zero-shot-02-stage0.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="zero-shot-video">
+                <div class="video-label">SAMA-stage1 Result</div>
+                <video controls muted loop playsinline preload="metadata" data-sync-group="zero-shot-02">
+                  <source src="assets/videos/zero-shot/zero-shot-02-stage1.mp4" type="video/mp4">
+                </video>
+              </div>
+            </div>
+            <p class="zero-shot-prompt">Add a A little girl with long brown hair beside the boy.</p>
+          </article>
+          <article class="zero-shot-row">
+            <div class="zero-shot-videos">
+              <div class="zero-shot-video">
+                <div class="video-label">Source</div>
+                <video controls muted loop playsinline preload="metadata" data-sync-group="zero-shot-03">
+                  <source src="assets/videos/zero-shot/zero-shot-03-source.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="zero-shot-video">
+                <div class="video-label">SAMA-stage0 Result</div>
+                <video controls muted loop playsinline preload="metadata" data-sync-group="zero-shot-03">
+                  <source src="assets/videos/zero-shot/zero-shot-03-stage0.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="zero-shot-video">
+                <div class="video-label">SAMA-stage1 Result</div>
+                <video controls muted loop playsinline preload="metadata" data-sync-group="zero-shot-03">
+                  <source src="assets/videos/zero-shot/zero-shot-03-stage1.mp4" type="video/mp4">
+                </video>
+              </div>
+            </div>
+            <p class="zero-shot-prompt">Remove the dancing man.</p>
+          </article>
+          <article class="zero-shot-row">
+            <div class="zero-shot-videos">
+              <div class="zero-shot-video">
+                <div class="video-label">Source</div>
+                <video controls muted loop playsinline preload="metadata" data-sync-group="zero-shot-04">
+                  <source src="assets/videos/zero-shot/zero-shot-04-source.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="zero-shot-video">
+                <div class="video-label">SAMA-stage0 Result</div>
+                <video controls muted loop playsinline preload="metadata" data-sync-group="zero-shot-04">
+                  <source src="assets/videos/zero-shot/zero-shot-04-stage0.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="zero-shot-video">
+                <div class="video-label">SAMA-stage1 Result</div>
+                <video controls muted loop playsinline preload="metadata" data-sync-group="zero-shot-04">
+                  <source src="assets/videos/zero-shot/zero-shot-04-stage1.mp4" type="video/mp4">
+                </video>
+              </div>
+            </div>
+            <p class="zero-shot-prompt">Transform into illustration style.</p>
+          </article>
+        </div>
+        <p>The factorized pre-training stage alone already induces strong zero-shot video editing behavior before supervised fine-tuning on paired editing data.</p>
+      </div>
+      <div class="bibtex-shell" id="bibtex">
+        <div class="section-head">
+          <p class="section-tag">Citation</p>
+          <h2>BibTeX</h2>
+        </div>
+        <div class="bibtex-card">
+          <button class="copy-button" type="button" data-copy-target="bibtex-block">Copy</button>
+          <pre id="bibtex-block">@article{zhang2026sama,
+  title={SAMA: Factorized Semantic Anchoring and Motion Alignment for Instruction-Guided Video Editing},
+  author={Zhang, Xinyao and Dong, Wenkai and Song, Yuxin and Fang, Bo and Zhang, Qi and Wang, Jing and Chen, Fan and Zhang, Hui and Feng, Haocheng and Lu, Yu and Zhou, Hang and Yuan, Chun and Wang, Jingdong},
+  journal={arXiv preprint},
   year={2026}
 }</pre>
+        </div>
       </div>
     </section>
   </main>
 
   <footer class="footer">
-    <p>Built as a static GitHub Pages site. Replace the placeholders and publish.</p>
+    <p>Static project page for SAMA with local paper assets and figures prepared for GitHub Pages.</p>
   </footer>
 
   <script src="assets/js/main.js"></script>
