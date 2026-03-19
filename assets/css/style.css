@@ -494,6 +494,12 @@ a {
   width: 100%;
 }
 
+.benchmark-section .benchmark-panel-head,
+.benchmark-section .benchmark-highlights-grid {
+  width: 100%;
+  max-width: none;
+}
+
 .benchmark-list {
   display: flex;
   flex-direction: column;
