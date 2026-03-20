@@ -55,6 +55,10 @@ Current instruction-guided video editing models struggle to simultaneously balan
 
 ![VIE-Bench results](./assets/images/table2-vie-bench.png)
 
+![OpenVE-Bench results](./assets/images/table3-openve-bench.png)
+
+![ReCo-Bench results](./assets/images/table4-reco-bench.png)
+
 ## 🚀 Quick Start
 
 ### 🛠️ Installation
