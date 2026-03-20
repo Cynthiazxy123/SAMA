@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SAMA: Factorized Semantic Anchoring and Motion Alignment for Instruction-Guided Video Editing</title>
   <meta name="description" content="Project page for SAMA, a factorized framework for instruction-guided video editing with semantic anchoring and motion alignment.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Manrope:wght@400;500;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
@@ -15,6 +18,7 @@
         <a href="#overview">Overview</a>
         <a href="#method">Method</a>
         <a href="#results">Results</a>
+        <a href="#bibtex">BibTeX</a>
       </div>
     </nav>
     <div class="hero-shell">
@@ -23,10 +27,19 @@
         <h1>SAMA</h1>
         <p class="hero-subtitle">Factorized Semantic Anchoring and Motion Alignment for Instruction-Guided Video Editing</p>
         <p class="authors">
-          Xinyao Zhang<sup>1,2,*</sup>, Wenkai Dong<sup>1,*</sup>, Yuxin Song<sup>1,*,&dagger;</sup>, Bo Fang<sup>1,3</sup>,
-          Qi Zhang<sup>1</sup>, Jing Wang<sup>1,2</sup>, Fan Chen<sup>1</sup>, Hui Zhang<sup>1</sup>,
-          Haocheng Feng<sup>1</sup>, Yu Lu<sup>4,&Dagger;</sup>, Hang Zhou<sup>1</sup>, Chun Yuan<sup>2</sup>,
-          Jingdong Wang<sup>1</sup>
+          <a href="https://scholar.google.com/citations?hl=zh-TW&user=3nRkR1wAAAAJ" target="_blank" rel="noreferrer">Xinyao Zhang</a><sup>1,2,*</sup>,
+          <a href="https://openreview.net/profile?id=~Wenkai_Dong1" target="_blank" rel="noreferrer">Wenkai Dong</a><sup>1,*</sup>,
+          <a href="https://scholar.google.com/citations?hl=zh-TW&user=1uL_9HAAAAAJ" target="_blank" rel="noreferrer">Yuxin Song</a><sup>1,*,&dagger;</sup>,
+          <a href="https://scholar.google.com.hk/citations?hl=zh-CN&user=sphnU4UAAAAJ" target="_blank" rel="noreferrer">Bo Fang</a><sup>1,3</sup>,
+          <a href="https://openreview.net/profile?id=~Qi_Zhang40" target="_blank" rel="noreferrer">Qi Zhang</a><sup>1</sup>,
+          <a href="https://openreview.net/profile?id=~Jing_Wang68" target="_blank" rel="noreferrer">Jing Wang</a><sup>1,2</sup>,
+          <a href="https://openreview.net/profile?id=~Fan_Chen14" target="_blank" rel="noreferrer">Fan Chen</a><sup>1</sup>,
+          <a href="https://openreview.net/profile?id=~Hui_Zhang28" target="_blank" rel="noreferrer">Hui Zhang</a><sup>1</sup>,
+          <a href="https://scholar.google.com.hk/citations?user=pnuQ5UsAAAAJ&hl=zh-CN&oi=ao" target="_blank" rel="noreferrer">Haocheng Feng</a><sup>1</sup>,
+          <a href="https://yulu.net.cn/" target="_blank" rel="noreferrer">Yu Lu</a><sup>4,&Dagger;</sup>,
+          <a href="https://hangz-nju-cuhk.github.io/" target="_blank" rel="noreferrer">Hang Zhou</a><sup>1</sup>,
+          <a href="https://scholar.google.com/citations?user=fYdxi2sAAAAJ&hl=zh-TW" target="_blank" rel="noreferrer">Chun Yuan</a><sup>2</sup>,
+          <a href="https://jingdongwang2017.github.io/" target="_blank" rel="noreferrer">Jingdong Wang</a><sup>1</sup>
         </p>
         <p class="affiliations">
           <span><sup>1</sup> Baidu Inc</span>
@@ -36,13 +49,13 @@
         </p>
         <p class="meta-note"><span>* Equal Contribution</span><span>&dagger; Project leader</span><span>&Dagger; Corresponding Author</span></p>
         <div class="cta-row">
-          <a class="button" href="assets/pdfs/SAMA_arxiv.pdf" target="_blank" rel="noreferrer">
+          <a class="button" href="https://arxiv.org/abs/2603.19228" target="_blank" rel="noreferrer">
             <span class="button-icon" aria-hidden="true">
               <img src="https://arxiv.org/static/browse/0.3.4/images/icons/favicon-32x32.png" alt="">
             </span>
             <span>Paper</span>
           </a>
-          <a class="button" href="https://github.com/Cynthiazxy123/SAMA" target="_blank" rel="noreferrer">
+          <a class="button primary" href="https://github.com/Cynthiazxy123/SAMA" target="_blank" rel="noreferrer">
             <span class="button-icon" aria-hidden="true">
               <img src="https://github.githubassets.com/favicons/favicon.svg" alt="">
             </span>
@@ -58,7 +71,7 @@
             <span class="button-icon" aria-hidden="true">
               <img src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg" alt="">
             </span>
-            <span>Dataset (Under review)</span>
+            <span>Dataset</span>
           </a>
         </div>
       </div>
@@ -185,7 +198,7 @@
                 </div>
               </div>
             </div>
-            <p class="benchmark-prompt">Add a white cartoon cat in the right of the boy.</p>
+            <p class="benchmark-prompt">Change the T-shirt of the man in the middle to blue.</p>
           </article>
           <article class="benchmark-row">
             <div class="benchmark-scroll">
@@ -468,9 +481,6 @@
           </article>
         </div>
       </div>
-    </section>
-
-    <section class="section page-section page-section-compact benchmark-section" id="benchmark-highlights">
       <div class="benchmark-panel-head">
         <h2 class="benchmark-title">Benchmark highlights</h2>
       </div>
@@ -1103,6 +1113,24 @@
           </article>
         </div>
         <p>The factorized pre-training stage alone already induces strong zero-shot video editing behavior before supervised fine-tuning on paired editing data.</p>
+      </div>
+      <div class="bibtex-shell" id="bibtex">
+        <div class="section-head">
+          <p class="section-tag">Citation</p>
+          <h2>BibTeX</h2>
+        </div>
+        <div class="bibtex-card">
+          <button class="copy-button" type="button" data-copy-target="bibtex-block">Copy</button>
+          <pre id="bibtex-block">@misc{zhang2026samafactorizedsemanticanchoring,
+      title={SAMA: Factorized Semantic Anchoring and Motion Alignment for Instruction-Guided Video Editing},
+      author={Xinyao Zhang and Wenkai Dong and Yuxin Song and Bo Fang and Qi Zhang and Jing Wang and Fan Chen and Hui Zhang and Haocheng Feng and Yu Lu and Hang Zhou and Chun Yuan and Jingdong Wang},
+      year={2026},
+      eprint={2603.19228},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2603.19228},
+}</pre>
+        </div>
       </div>
     </section>
   </main>

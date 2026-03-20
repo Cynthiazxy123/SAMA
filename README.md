@@ -1,7 +1,7 @@
 # SAMA: Factorized Semantic Anchoring and Motion Alignment for Instruction-Guided Video Editing
 
 <div align="center">
-  <a href="https://arxiv.org/" target="_blank"><img src="https://img.shields.io/badge/Paper-b31b1b.svg?logo=arxiv&logoColor=white" height="22px"></a>
+  <a href="https://arxiv.org/abs/2603.19228" target="_blank"><img src="https://img.shields.io/badge/Paper-b31b1b.svg?logo=arxiv&logoColor=white" height="22px"></a>
   <a href="https://cynthiazxy123.github.io/SAMA/" target="_blank"><img src="https://img.shields.io/badge/Webpage-4f46e5.svg?logo=googlechrome&logoColor=white" height="22px"></a>
   <a href="https://huggingface.co/syxbb/SAMA-14B" target="_blank"><img src="https://img.shields.io/badge/Model-f59e0b.svg?logo=huggingface&logoColor=white" height="22px"></a>
   <a href="https://huggingface.co/datasets/syxbb/SAMA-edit-filtered-1M" target="_blank"><img src="https://img.shields.io/badge/Dataset-2563eb.svg?logo=huggingface&logoColor=white" height="22px"></a>
@@ -9,10 +9,19 @@
 </div>
 
 <div align="center">
-  Xinyao Zhang<sup>1,2,*</sup>, Wenkai Dong<sup>1,*</sup>, Yuxin Song<sup>1,*,&dagger;</sup>, Bo Fang<sup>1,3</sup>,
-  Qi Zhang<sup>1</sup>, Jing Wang<sup>1,2</sup>, Fan Chen<sup>1</sup>, Hui Zhang<sup>1</sup>,
-  Haocheng Feng<sup>1</sup>, Yu Lu<sup>4,&Dagger;</sup>, Hang Zhou<sup>1</sup>, Chun Yuan<sup>2</sup>,
-  Jingdong Wang<sup>1</sup>
+  <a href="https://scholar.google.com/citations?hl=zh-TW&user=3nRkR1wAAAAJ">Xinyao Zhang</a><sup>1,2,*</sup>,
+  <a href="https://openreview.net/profile?id=~Wenkai_Dong1">Wenkai Dong</a><sup>1,*</sup>,
+  <a href="https://scholar.google.com/citations?hl=zh-TW&user=1uL_9HAAAAAJ">Yuxin Song</a><sup>1,*,&dagger;</sup>,
+  <a href="https://scholar.google.com.hk/citations?hl=zh-CN&user=sphnU4UAAAAJ">Bo Fang</a><sup>1,3</sup>,
+  <a href="https://openreview.net/profile?id=~Qi_Zhang40">Qi Zhang</a><sup>1</sup>,
+  <a href="https://openreview.net/profile?id=~Jing_Wang68">Jing Wang</a><sup>1,2</sup>,
+  <a href="https://openreview.net/profile?id=~Fan_Chen14">Fan Chen</a><sup>1</sup>,
+  <a href="https://openreview.net/profile?id=~Hui_Zhang28">Hui Zhang</a><sup>1</sup>,
+  <a href="https://scholar.google.com.hk/citations?user=pnuQ5UsAAAAJ&hl=zh-CN&oi=ao">Haocheng Feng</a><sup>1</sup>,
+  <a href="https://yulu.net.cn/">Yu Lu</a><sup>4,&Dagger;</sup>,
+  <a href="https://hangz-nju-cuhk.github.io/">Hang Zhou</a><sup>1</sup>,
+  <a href="https://scholar.google.com/citations?user=fYdxi2sAAAAJ&hl=zh-TW">Chun Yuan</a><sup>2</sup>,
+  <a href="https://jingdongwang2017.github.io/">Jingdong Wang</a><sup>1</sup>
 </div>
 
 <div align="center">
@@ -30,7 +39,21 @@ Official inference code for **SAMA: Factorized Semantic Anchoring and Motion Ali
 
 SAMA factorizes instruction-guided video editing into semantic anchoring and motion alignment, improving edit precision while preserving temporal dynamics from the source video.
 
----
+## 🧾 Abstract
+
+Current instruction-guided video editing models struggle to simultaneously balance precise semantic modifications with faithful motion preservation. While existing approaches rely on injecting explicit external priors (e.g., VLM features or structural conditions) to mitigate these issues, this reliance severely bottlenecks model robustness and generalization. To overcome this limitation, we present **SAMA** (factorized **S**emantic **A**nchoring and **M**otion **A**lignment), a framework that factorizes video editing into semantic anchoring and motion modeling. First, we introduce **Semantic Anchoring**, which establishes a reliable visual anchor by jointly predicting semantic tokens and video latents at sparse anchor frames, enabling purely instruction-aware structural planning. Second, **Motion Alignment** pre-trains the same backbone on motion-centric video restoration pretext tasks (cube inpainting, speed perturbation, and tube shuffle), enabling the model to internalize temporal dynamics directly from raw videos. SAMA is optimized with a two-stage pipeline: a factorized pre-training stage that learns inherent semantic-motion representations without paired video-instruction editing data, followed by supervised fine-tuning on paired editing data. Remarkably, the factorized pre-training alone already yields strong zero-shot video editing ability, validating the proposed factorization. SAMA achieves state-of-the-art performance among open-source models and is competitive with leading commercial systems (e.g. Kling-Omni). Code, models, and datasets will be released.
+
+## 🖼️ Overview
+
+![SAMA teaser overview](./assets/images/teaser-overview.png)
+
+## 📰 News
+
+- 🔥 2026.03.20 Release paper.
+
+## 📊 Benchmark Highlight
+
+![VIE-Bench results](./assets/images/table2-vie-bench.png)
 
 ## 🚀 Quick Start
 
@@ -116,11 +139,28 @@ huggingface-cli download syxbb/SAMA-14B --local-dir ./models/SAMA-14B
 - The output video uses the source video FPS when available; otherwise it falls back to `--fps`.
 - If `--model-root` is incomplete, the script will stop and report the missing files or directories.
 
----
-
 ## 🤗 Available Models
 
 | Model | Status | Link |
 | --- | --- | --- |
 | SAMA-5B | Coming soon | Coming soon |
 | SAMA-14B | Available | [syxbb/SAMA-14B](https://huggingface.co/syxbb/SAMA-14B) |
+
+## 🙏 Acknowledgement
+
+- **Wan**: We build SAMA on top of the Wan video generation backbone and follow its model ecosystem for video synthesis and editing.
+- **DiffSynth**: We use DiffSynth as the underlying implementation framework for model components, inference utilities, and training-related infrastructure.
+
+## 📚 Citation
+
+```bibtex
+@misc{zhang2026samafactorizedsemanticanchoring,
+      title={SAMA: Factorized Semantic Anchoring and Motion Alignment for Instruction-Guided Video Editing},
+      author={Xinyao Zhang and Wenkai Dong and Yuxin Song and Bo Fang and Qi Zhang and Jing Wang and Fan Chen and Hui Zhang and Haocheng Feng and Yu Lu and Hang Zhou and Chun Yuan and Jingdong Wang},
+      year={2026},
+      eprint={2603.19228},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2603.19228},
+}
+```
