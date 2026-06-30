@@ -49,6 +49,8 @@ Current instruction-guided video editing models struggle to simultaneously balan
 
 ## 📰 News
 
+- 📦 2026.06.26 [SAMA-edit-filtered-1M dataset meta](https://huggingface.co/datasets/syxbb/SAMA-edit-filtered-1M) is released at [syxbb/SAMA-edit-filtered-1M](https://huggingface.co/datasets/syxbb/SAMA-edit-filtered-1M).
+- 🎉 2026.06.20 SAMA is accepted by ECCV 2026.
 - 🔥 2026.03.24 [SAMA-ComfyUI](https://github.com/Cynthiazxy123/SAMA-ComfyUI-official) is open-sourced at [Cynthiazxy123/SAMA-ComfyUI-official](https://github.com/Cynthiazxy123/SAMA-ComfyUI-official).
 - 🔥 2026.03.21 [SAMA-14B](https://huggingface.co/syxbb/SAMA-14B) is released at [syxbb/SAMA-14B](https://huggingface.co/syxbb/SAMA-14B).
 - 🔥 2026.03.20 Release paper.
